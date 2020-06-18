@@ -300,14 +300,15 @@ window.shuWobble = (obj) => {
   }
 }
 
-
-window.shuWobble1 = (obj, moveX) => {
+window.shuWobble1 = function(obj, moveX)  {
   var _this = this;
   _this.obj = obj;
   _this.num = 0;
   _this.r = null;
   var timi = random1(1, 10) * 100;
+  
   setTimeout(() => {
+    console.log(this)
     createjs.Tween.get(_this.obj).to({ rotation: -moveX }, 1000, createjs.Ease.cubicOut).call(function () { _this.start() });
   }, timi);
 

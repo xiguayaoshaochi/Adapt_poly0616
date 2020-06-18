@@ -19,7 +19,7 @@ for (let i = 0; i < json_re.length; i++) {
   if (json_re[i]["name"].indexOf("hua") > -1 && json_re[i]["name"].length<5) {
     wb[reName].scaleX = wb[reName].scaleY = 0.95 + ((random1(0, 20000) - 10000) / 100000);
     if(random1(1,10)>7){
-      // window['hua' + wb[reName]] = new shuWobble1(wb[reName], 1.5);
+      window['hua' + random1(0, 20000)] = new shuWobble1(wb[reName], 1);
     }
     var origin_x = 0.5; var origin_y = 0.9;
   }

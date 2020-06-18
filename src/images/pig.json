@@ -1,0 +1,29 @@
+{
+"images": ["pig.png"],
+"frames": [
+
+    [0, 0, 89, 80], 
+    [89, 0, 86, 79], 
+    [175, 0, 88, 81], 
+    [263, 0, 88, 82], 
+    [351, 0, 89, 82], 
+    [440, 0, 89, 82], 
+    [529, 0, 90, 82], 
+    [619, 0, 92, 79]
+],
+"animations": {
+    
+        "_0000_¥ø÷÷÷Ìeat0000":[0], 
+        "_0001_¥ø÷÷÷Ìeat0001":[1], 
+        "_0002_¥ø÷÷÷Ìeat0002":[2], 
+        "_0003_¥ø÷÷÷Ìeat0003":[3], 
+        "_0004_¥ø÷÷÷Ìeat0004":[4], 
+        "_0005_¥ø÷÷÷Ìeat0005":[5], 
+        "_0006_¥ø÷÷÷Ìeat0006":[6], 
+        "_0007_¥ø÷÷÷Ìeat0007":[7]
+},
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:fb1eb866c0551b155604bf1639d2fe1a$",
+        "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+]
+}

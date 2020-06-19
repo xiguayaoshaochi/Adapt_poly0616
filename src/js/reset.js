@@ -37,7 +37,7 @@ window.containerAll2_cs = new createjs.Container();
 window.containerAll3 = new createjs.Container();
 window.containerAll_yh = new createjs.Container();
 window.person = new createjs.Container();
-
+createjs.Touch.enable(stage);
 
 // addBitmap('bg',bg_,0,0,"addArr6");
 // container4_2.addChild(wb.bg);
@@ -121,7 +121,7 @@ window.Shu_logo_y = 822;
 window.yanhua_lock = true;
 window.cx = 348;
 window.cy = 40;
-window.waitTime = 700000000;
+window.waitTime = 7000;
 window.steps = "start";
 window.bitmaps = window.bitmaps || {};
 window.sprite = window.sprite || {};
@@ -157,7 +157,7 @@ window.random1 = (min, max) =>  {
 
 
 window.getNum = (con1, con2) =>  {
-  var rand = random(con1[0], con2[1]);
+  var rand = random1(con1[0], con2[1]);
 
   if ((rand > con1[0] && rand < con1[1]) || (rand > con2[0] && rand < con2[1])) {
     return rand;

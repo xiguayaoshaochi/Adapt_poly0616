@@ -1,9 +1,9 @@
 var $ = require('jquery');
-function first() {
+window.first=()=>{
   window.dx1 = wb.yingzi.x - wsp.mine_all_ani.x;
   window.dy1 = wb.yingzi.y - wsp.mine_all_ani.y;
-  window.dx2 = wb.yingzi2.x - wsp.mine_all_ani2.x;
-  window.dy2 = wb.yingzi2.y - wsp.mine_all_ani2.y;
+  window.dx2 = wb.yingzi2.x - wsp.heli_ani.x;
+  window.dy2 = wb.yingzi2.y - wsp.heli_ani.y;
 }
 
 
@@ -18,7 +18,7 @@ window.endShow1 = ()=> {
 
 window.endShow = function (choose) {
 
-  // wsp.mine_all_ani.gotoAndPlay("stop");
+  wsp.heli_ani.gotoAndPlay("stop");
   // setTimeouc(function(){
   //   wsp.mine_all_ani.gotoAndPlay("huimao");
   // },500)
@@ -167,7 +167,7 @@ function clearAllChoose() {
 
 
 
-window.removeStop=(obj)=>{
+window.removeStop=function(obj){
   var e = arguments.length;
   if (e > 1) {
     console.log(arguments);
@@ -182,7 +182,7 @@ window.removeStop=(obj)=>{
   }
 }
 
-window.handAni = (obj, arr)=> {
+window.handAni = function(obj, arr) {
   var _this = this;
   _this.index_ = 0;
   _this.arr = arr;
@@ -190,9 +190,12 @@ window.handAni = (obj, arr)=> {
   _this.pauseState = "open";
   _this.obj.scaleX = _this.obj.scaleY = 1; _this.obj.alpha = 0;
   _this.obj.x = _this.arr[_this.index_].x - 120; _this.obj.y = _this.arr[_this.index_].y - 150;
-  createjs.Tween.get(_this.obj).to({ scaleX: 0.8, scaleY: 0.8, alpha: 1, x: _this.obj.x + 60, y: _this.obj.y + 80 }, 700, createjs.Ease.circOut);
+  createjs.Tween.get(_this.obj).to({ scaleX: 0.8, scaleY: 0.8, alpha: 1, x: _this.obj.x + 60, y: _this.obj.y + 80 }, 700, createjs.Ease.circOut).call(function(){
+    _this.start();
+  });
 
   _this.start = function () {
+    console.log("start")
     _this.index_++;
     _this.obj.x = arr[_this.index_ % _this.arr.length].x - 120; _this.obj.y = arr[_this.index_ % _this.arr.length].y - 150; _this.obj.scaleX = _this.obj.scaleY = 1.2;
     createjs.Tween.get(_this.obj).to({ scaleX: 0.8, scaleY: 0.8, x: _this.obj.x + 60, y: _this.obj.y + 80 }, 700, createjs.Ease.circOut).wait(200).call(function () {
@@ -213,8 +216,9 @@ window.handAni = (obj, arr)=> {
     _this.obj.alpha = 1;
     _this.obj.scaleX = _this.obj.scaleY = 1;
     _this.obj.x = _this.arr[_this.index_].x - 120; _this.obj.y = _this.arr[_this.index_].y - 150;
-    createjs.Tween.get(_this.obj).to({ scaleX: 0.8, scaleY: 0.8, alpha: 1, x: _this.obj.x + 60, y: _this.obj.y + 80 }, 700, createjs.Ease.circOut);
-    return _this.start();
+    createjs.Tween.get(_this.obj).to({ scaleX: 0.8, scaleY: 0.8, alpha: 1, x: _this.obj.x + 60, y: _this.obj.y + 80 }, 700, createjs.Ease.circOut).call(function () {
+      _this.start();
+    });
   }
 
 }
@@ -238,14 +242,14 @@ window.waitFun = (call, timer) => {
 }
 
 
-window.eatLoop = (obj, later, timer)=> {
+window.eatLoop = function(obj, later, timer) {
   var _this = this;
   _this.lock = true;
-  obj.gotoAndPlay("eat");
+  obj.gotoAndPlay("start");
   setTimeouc(function () {
     _this.c = setInterval(function () {
       if (_this.lock == true) {
-        obj.gotoAndPlay("eat");
+        obj.gotoAndPlay("start");
       }
     }, timer)
   }, later)
@@ -308,7 +312,6 @@ window.shuWobble1 = function(obj, moveX)  {
   var timi = random1(1, 10) * 100;
   
   setTimeout(() => {
-    console.log(this)
     createjs.Tween.get(_this.obj).to({ rotation: -moveX }, 1000, createjs.Ease.cubicOut).call(function () { _this.start() });
   }, timi);
 
@@ -367,11 +370,11 @@ window.mineChangeSite = (x, y, alpha)=> {
 
 window.mineChangeSite1 = (x, y, alpha)=>{
 
-  wsp.mine_all_ani2.x = x;
-  wsp.mine_all_ani2.y = y;
-  wsp.mine_all_ani2.alpha = alpha;
-  wb.yingzi2.x = wsp.mine_all_ani2.x + dx2;
-  wb.yingzi2.y = wsp.mine_all_ani2.y + dy2;
+  wsp.heli_ani.x = x;
+  wsp.heli_ani.y = y;
+  wsp.heli_ani.alpha = alpha;
+  wb.yingzi2.x = wsp.heli_ani.x + dx2;
+  wb.yingzi2.y = wsp.heli_ani.y + dy2;
   wb.yingzi2.alpha = alpha;
 }
 
@@ -625,7 +628,7 @@ window.mapMove = function (obj, moveX, moveY, speed, boolean, callback) {
 
 
   if (obj.name == "mine_all_ani") {
-    createjs.Tween.get(wsp.mine_all_ani2).to({ x: wsp.mine_all_ani2.x + moveX - obj.x, y: wsp.mine_all_ani2.y + moveY - obj.y }, timeimg, createjs.Ease.linear);
+    createjs.Tween.get(wsp.heli_ani).to({ x: wsp.heli_ani.x + moveX - obj.x, y: wsp.heli_ani.y + moveY - obj.y }, timeimg, createjs.Ease.linear);
     createjs.Tween.get(wb.yingzi).to({ x: wb.yingzi.x + moveX - obj.x, y: wb.yingzi.y + moveY - obj.y }, timeimg, createjs.Ease.linear);
     createjs.Tween.get(wb.yingzi2).to({ x: wb.yingzi2.x + moveX - obj.x, y: wb.yingzi2.y + moveY - obj.y }, timeimg, createjs.Ease.linear);
     createjs.Tween.get(obj).to({ x: moveX, y: moveY }, timeimg, createjs.Ease.linear).call(function () {
@@ -844,7 +847,7 @@ function boomSomethings(x, y, boomarr, thisIndex) {
 
 
 //箭头上下引导动画
-window.jtAanimate = (obj, displacement, duration) => {
+window.jtAanimate = function(obj, displacement, duration) {
   var _this = this;
   _this.obj = obj;
   _this.obj.y = _this.obj.y - 10;

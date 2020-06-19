@@ -6,13 +6,14 @@ import yanhua2_ from '../images/yanhua2.png';
 import yanhua3_ from '../images/yanhua2.png';
 
 import yanwu1_ from '../images/yanwu.png';
-// import yanwu2_ from '../images/yanwu1.png';                                            
+import yanwu2_ from '../images/yanwu1.png';                                            
 import mine_ from '../images/person.png';
 import mine_2 from '../images/person2.png';
 import heli_ from '../images/heli.png';
 import huo_ from '../images/huo.png';
-import water_ from '../images/water.png';
+// import water_ from '../images/water.png';
 import zhadan_ from '../images/zhadan.png';
+import pig_ from '../images/pig.png';
 
 
 
@@ -40,6 +41,8 @@ import stone1_ from '../images/sma_img/sp/stone1.png';
 import stone2_ from '../images/sma_img/sp/stone2.png';
 import stoneRoad_ from '../images/sma_img/sp/stoneRoad.png';
 import zhangpeng_ from '../images/sma_img/sp/zhangpeng.png';
+
+window.sprite_ = sprite_;
 
 window.baoxiang_ = baoxiang_;
 window.cao2_ = cao2_;
@@ -111,26 +114,70 @@ var yanhua2_all = new createjs.SpriteSheet({
 
 
 
-
-
-var mine_all = new createjs.SpriteSheet({
+var pig_all = new createjs.SpriteSheet({
   framerate: 15,
-  "images": [mine_],
-  "frames": { "regX": 0, "height": 133, "count": 23, "regY": 0, "width": 56 },
+  "images": [pig_],
+  "frames": { "regX": 0, "height": 83, "count": 8, "regY": 0, "width": 92 },
   "animations": {
-    "walk_bz": [15, 22, "walk_bz", 0.2],
-    "chui": [0, 14, "stop", 0.2],
+    "start": [0, 7, "stop", 0.2],
     "stop": [0],
   },
 });
 
-var mine_all2 = new createjs.SpriteSheet({
+var zhadan_all = new createjs.SpriteSheet({
+  framerate: 15,
+  "images": [zhadan_],
+  "frames": { "regX": 0, "height": 74, "count": 11, "regY": 0, "width": 74 },
+  "animations": {
+    "start": [0, 10, "start", 0.2],
+    "stop": [0],
+  },
+});
+
+
+
+
+
+
+var mine_all = new createjs.SpriteSheet({
   framerate: 15,
   "images": [mine_2],
-  "frames": { "regX": 0, "height": 104, "count": 9, "regY": 0, "width": 42 },
+  "frames": { "regX": 0, "height": 113, "count": 19, "regY": 0, "width": 109 },
+  "animations": {
+    "walk_bz": [0, 7, "walk_bz", 0.2],
+    "kan": [8, 17, "stop", 0.2],
+    "stop": [18],
+  },
+});
+
+var heli_all = new createjs.SpriteSheet({
+  framerate: 15,
+  "images": [heli_],
+  "frames": { "regX": 0, "height": 40, "count": 9, "regY": 0, "width": 42 },
   "animations": {
     "walk_bz": [0, 7, "walk_bz", 0.2],
     "stop": [8],
+  },
+});
+
+var huo_all = new createjs.SpriteSheet({
+  framerate: 15,
+  "images": [huo_],
+  "frames": { "regX": 0, "height": 98, "count": 8, "regY": 0, "width": 95 },
+  "animations": {
+    "start": [0, 7, "start", 0.35],
+  },
+});
+
+
+
+var mine_all2 = new createjs.SpriteSheet({
+  framerate: 15,
+  "images": [mine_],
+  "frames": { "regX": 0, "height": 133, "count": 15, "regY": 0, "width": 56 },
+  "animations": {
+    "chui": [0, 14, "stop", 0.2],
+    "stop": [0],
   },
 });
 
@@ -145,6 +192,17 @@ var yanwu1_all = new createjs.SpriteSheet({
     "start": [0, 15, "last", 0.2],
     "last": [15],
     "start1": [0, 15, "start1", 0.2],
+  },
+});
+
+var yanwu2_all = new createjs.SpriteSheet({
+  framerate: 15,
+  "images": [yanwu2_],
+  "frames": { "regX": 0, "height": 120, "count": 16, "regY": 0, "width": 101 },
+  "animations": {
+    "start": [0, 15, "last", 0.35],
+    "last": [15],
+    "start1": [0, 15, "start1", 0.35],
   },
 });
 
@@ -171,25 +229,36 @@ setTimeout(function () {
   addSpriteSheet("yanhua2_all", yanhua2_all, "start", 1250, 50, 1, 0.5, 0.5);
   addSpriteSheet("yanhua22_all", yanhua2_all, "start", 1250, 50, 1, 0.5, 0.5);
 
-  addSpriteSheet("yanwu_ani", yanwu1_all, "start", 666.1, 1839.2, 1, 0.5, 0.5);
+  addSpriteSheet("yanwu_ani", yanwu1_all, "start", 823.8, 1284.6, 1, 0.5, 0.5);
+
+  addSpriteSheet("zhayan_ani", yanwu2_all, "start", 1641.7, 777.0, 1, 0.5, 0.5);
 
 
+  addSpriteSheet("mine_all_ani", mine_all, "stop", 571.5, 1345.2, 1, 0.5, 0.5);
+  addSpriteSheet("mine_all_ani2", mine_all2, "stop", 1917.0, 668.7, 1, 0.55, 0.5);
+  addSpriteSheet("heli_ani", heli_all, "stop", 541.5, 1398.5, 1, 0.55, 0.5);
+  addSpriteSheet("pig_ani1", pig_all, "stop", 1382.4, 933.1, 1, 0.55, 0.5);
+  addSpriteSheet("pig_ani2", pig_all, "stop", 1419.5, 957.8, 1, 0.55, 0.5);
+  addSpriteSheet("huo_ani1", huo_all, "start", 1459.7, 914.5, 1, 0.55, 0.5);
+  addSpriteSheet("huo_ani2", huo_all, "start", 1303.6, 953.2, 1, 0.55, 0.5);
+  addSpriteSheet("huo_ani3", huo_all, "start", 1372.9, 978.0, 1, 0.55, 0.5);
+  addSpriteSheet("zhadan_ani", zhadan_all, "start", 1598.4, 874.4, 1, 0.55, 0.5);
+  
 
-  addSpriteSheet("mine_all_ani", mine_all, "stop", 573, 1780, 1, 0.55, 0.5);
-  addSpriteSheet("mine_all_ani2", mine_all2, "stop", 628.6, 1772.1, 1, 0.55, 0.5);
 
-
+  addRectBitmap_simple('shu', 'shu', sprite_, json_sprite, 0.5, 0.5, 1548.7,751.9, "addArrAll", true);
+  addRectBitmap_simple('shu_bian', 'shu_bian', sprite_, json_sprite, 0.5, 0.5, 1548.7,751.9, "addArrAll", true);
 
   addRectBitmap_simple('qiaoji', 'qiaoji', sprite_, json_sprite, 0.5, 0.5, 1669.9, 1287.6, "addArrAll", true);
 
-  addRectBitmap_simple('yingzi', 'yingzi', sprite_, json_sprite, 0.5, 0.5, 532.0, 1794.6, "addArrAll", true);
+  addRectBitmap_simple('yingzi', 'yingzi', sprite_, json_sprite, 0.5, 0.5, 528.9, 1355.9, "addArrAll", true);
   addRectBitmap_simple('jt', 'jt', sprite_, json_sprite, 0.5, 0.95, 596.6, 669.2, "addArrAll", true);
 
-  addRectBitmap_simple('yingzi2', 'yingzi', sprite_, json_sprite, 0.5, 0.5, 578.3, 1777.6, "addArrAll", true);
+  addRectBitmap_simple('yingzi2', 'yingzi', sprite_, json_sprite, 0.5, 0.5, 487.1, 1379.0, "addArrAll", true);
+  addRectBitmap_simple('yingzi3', 'yingzi', sprite_, json_sprite, 0.5, 0.5, 1860.0, 680.7 , "addArrAll", true);
+  addRectBitmap_simple('qipao1', 'qipao1', sprite_, json_sprite, 0.9, 1, 413.9, 1119.1, "addArrAll", true);
 
-  addRectBitmap_simple('qipao1', 'qipao1', sprite_, json_sprite, 0.1, 1, 565.4, 1550.1, "addArrAll", true);
-
-  addRectBitmap_simple('go', 'go', sprite_, json_sprite, 0.5, 0.5, 738.5, 1933.2, "addArrAll", true);
+  addRectBitmap_simple('go', 'go', sprite_, json_sprite, 0.5, 0.5, 809.6, 1453.6, "addArrAll", true);
 
   addRectBitmap_simple('choose_kuang', 'choose_kuang', sprite_, json_sprite, 0.5, 0.5, 970.3, 846.1, "addArrAll", true);
   addRectBitmap_simple('yellow1', 'yellow', sprite_, json_sprite, 0.5, 0.5, 970.3, 846.1, "addArrAll", true);
@@ -206,8 +275,8 @@ setTimeout(function () {
   addRectBitmap_simple('cs3_2', 'cs3_2', sprite_, json_sprite, 0.5, 0.5, 971.8, 790.5, "addArrAll", true);
   // addRectBitmap_simple('cs4_1','cs4_1',sprite_,json_sprite,0.5,0.5,970.3,846.1,"addArrAll",true);
   // addRectBitmap_simple('cs4_2','cs4_2',sprite_,json_sprite,0.5,0.5,971.8,790.5,"addArrAll",true);
-  addRectBitmap_simple('an1_1', 'cs1_1', sprite_, json_sprite, 0.5, 0.5, 1257.7, 1505.2, "addArrAll", true);
-  addRectBitmap_simple('an1_2', 'cs1_2', sprite_, json_sprite, 0.36, 0.52, 1120.1, 1503.6, "addArrAll", true);
+  addRectBitmap_simple('an1_1', 'muban', sprite_, json_sprite, 0.5, 0.5, 740.8, 1288.5 , "addArrAll", true);
+  addRectBitmap_simple('an1_2', 'stone', sprite_, json_sprite, 0.36, 0.52, 738.1, 1313.1  , "addArrAll", true);
   addRectBitmap_simple('an2_1', 'cs2_1', sprite_, json_sprite, 0.8, 0.2, 1657.3, 1237.5, "addArrAll", true);
   addRectBitmap_simple('an2_2', 'cs2_2', sprite_, json_sprite, 0.5, 0.5, 1638.7, 1254.5, "addArrAll", true);
   addRectBitmap_simple('an3_1', 'cs3_1', sprite_, json_sprite, 0.5, 0.5, 2142.3, 996.6, "addArrAll", true);
@@ -220,8 +289,6 @@ setTimeout(function () {
   addRectBitmap_simple('hand', 'hand', sprite_, json_sprite, 0.5, 0.5, 971.8, 790.5, "addArrAll", true);
   addRectBitmap_simple('hand1', 'hand', sprite_, json_sprite, 0.5, 0.5, 971.8, 790.5, "addArrAll", true);
   addRectBitmap_simple('yellow3', 'baoshi2', sprite_, json_sprite, 0.5, 0.5, 985, 1021.0, "addArrAll", true);
-
-
 
 
   addRectBitmap_simple('sma_kuang', 'sma_kuang', sprite_, json_sprite, 0.5, 0.5, 10, 10, "addArrAll", false);
@@ -278,16 +345,16 @@ setTimeout(function () {
 
 
 
-  person.addChild(wb.yingzi, wb.yingzi2, wsp.mine_all_ani, wsp.mine_all_ani2, wb.fail, wb.yellow3, wb.an2_2, wb.an3_1, wb.an3_2
-    , wb.go, wsp.yanwu_ani, wb.qipao1);
+  person.addChild(wb.yingzi, wb.yingzi2,wb.yingzi3, wsp.mine_all_ani2, wb.fail, wb.yellow3, wb.an2_2, wb.an3_1, wb.an3_2
+    , wb.go, wb.qipao1, wsp.huo_ani1, wsp.pig_ani1, wsp.pig_ani2, wsp.huo_ani2, wsp.huo_ani3, wb.shu, wb.shu_bian, wsp.zhadan_ani);
   containerAll3.addChild(wb.sma_kuang, wb.bag, wb.open, wb.close, container3);
   containerAll2_cs.alpha = 0;
 
-  person.addChild(wb.an1_1, wb.an1_2, wb.qiaoji, wb.an2_1, wb.an2_2, wb.an3_1, wb.an3_2, wb.yingzi, wsp.mine_all_ani);
+  person.addChild(wb.an1_1, wb.an1_2, wb.qiaoji, wb.an2_1, wb.an2_2, wb.an3_1, wb.an3_2, wb.yingzi, wsp.yanwu_ani, wsp.mine_all_ani, wsp.heli_ani, wsp.zhayan_ani);
 
 
   window.arr_zero = [wb.fail, wb.cs2_1, wb.cs2_2, wb.cs3_1, wb.cs3_2, wb.an1_1, wb.an1_2, wb.an2_1, wb.an2_2, wb.an3_1, wb.an3_2,
-  wb.qiaoji, wsp.yanwu_ani, wb.yellow3];
+    wb.qiaoji, wsp.yanwu_ani, wb.yellow3, wb.go, wsp.huo_ani1, wsp.huo_ani2, wsp.huo_ani3, wb.shu_bian, wsp.zhadan_ani,wsp.zhayan_ani];
 
 
   window.arr_zero2 = [wb.qipao1];
@@ -311,8 +378,15 @@ setTimeout(function () {
   wsp.mine_all_ani.skewY = 180;
   wb.fail.scaleX = wb.fail.scaleY = 1.3;
   // wsp.mine_all_ani.scaleX=wsp.mine_all_ani.scaleY=1.2;
+  wb.qipao1.skewY = 180;
+  wb.jt.scaleX = wb.jt.scaleY = 0.8;
+  wsp.huo_ani1.scaleX = wsp.huo_ani1.scaleY=0.9;
+  wsp.huo_ani2.scaleX = wsp.huo_ani2.scaleY = 1.1;
+  wsp.zhadan_ani.scaleX = wsp.zhadan_ani.scaleY = 1.35
 
   wb.an3_1.scaleX = wb.an3_1.scaleY = 0.8; wb.an3_2.scaleX = wb.an3_2.scaleY = 0.8;
+  wsp.heli_ani.scaleX = wsp.heli_ani.scaleY = 1.35;
+  wsp.zhayan_ani.scaleX = wsp.zhayan_ani.scaleY = 3;
 
   wb.open.addEventListener("mousedown", function () {
     if (wb.open.alpha == 0) {

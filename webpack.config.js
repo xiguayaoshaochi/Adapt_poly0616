@@ -27,23 +27,24 @@ module.exports = {
       template: path.join(__dirname, 'src/index.html'),//指定模板页面，将来会根据指定的页面路径，去生成页面中的页面
       filename: "index.html"//指定生成的页面的名称
     }),
-    new CleanWebpackPlugin(),
-    //new 一个热更新的模块对象，这是启用热更新的第三步
-    new webpack.HotModuleReplacementPlugin ()
+    // new CleanWebpackPlugin(),
+    // //new 一个热更新的模块对象，这是启用热更新的第三步
+    // new webpack.HotModuleReplacementPlugin ()
+    new webpack.HotModuleReplacementPlugin()
   ],
   optimization: { //与entry同级
-    // minimizer: [
-    //   new UglifyJsPlugin({
-    //     uglifyOptions: {
-    //       compress: false,
-    //       mangle: true,
-    //       output: {
-    //         comments: false,
-    //       },
-    //     },
-    //     sourceMap: false,
-    //   })
-    // ]
+    minimizer: [
+      // new UglifyJsPlugin({
+      //   uglifyOptions: {
+      //     compress: false,
+      //     mangle: true,
+      //     output: {
+      //       comments: false,
+      //     },
+      //   },
+      //   sourceMap: false,
+      // })
+    ]
   },
   // 使用webpack-dev-server -D 把热更新安装到本地
   // 只有安装到全局 -g的工具，才能再终端中直接执行

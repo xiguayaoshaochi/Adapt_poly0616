@@ -5,6 +5,7 @@ window.json_re = require('../js/resources.json');
 for (let i = 0; i < json_re.length; i++) {
   var realName = json_re[i]["name"];
   var reName;
+  var con = container2;
   reName = realName + random1(1, 9999);
   if (typeof json_re[i]["rename"] != "undefined") {
     reName = json_re[i]["rename"];
@@ -17,9 +18,9 @@ for (let i = 0; i < json_re.length; i++) {
 
 
   if (json_re[i]["name"].indexOf("hua") > -1 && json_re[i]["name"].length<5) {
-    wb[reName].scaleX = wb[reName].scaleY = 0.95 + ((random1(0, 20000) - 10000) / 100000);
+    wb[reName].scaleX = wb[reName].scaleY = 1.1 + ((random1(0, 20000) - 10000) / 100000);
     if(random1(1,10)>7){
-      window['hua' + random1(0, 20000)] = new shuWobble1(wb[reName], 1);
+      window['hua' + random1(0, 20000)] = new shuWobble1(wb[reName], 1.5);
     }
     var origin_x = 0.5; var origin_y = 0.9;
   }
@@ -28,19 +29,19 @@ for (let i = 0; i < json_re.length; i++) {
     
     var origin_x = 0.5; var origin_y = 0.9;
      wb[reName].y = wb[reName].y+80;
-    // console.log(wb[reName].x)
-    window['shu' + random1(0, 20000)] = new shuWobble1(wb[reName], 2);
+    if (random1(1, 10) > 4) window['shu' + random1(0, 20000)] = new shuWobble1(wb[reName], 2);
+    
   }
 
   if (json_re[i]["name"].indexOf("stone1") > -1 ) {
     wb[reName].scaleX = wb[reName].scaleY = 0.7 + ((random1(0, 20000) - 10000) / 100000);
   }
 
-  if (json_re[i]["name"].indexOf("hua2") > -1) {
-    var text = new createjs.Text(reName + ',' + json_re[i]["left"] + ',' + json_re[i]["top"], "28px Arial", "#000");
-    text.x = wb[reName].x; text.y = wb[reName].y;
-    text.color ="#00c0ff";
-    text.textBaseline = "alphabetic";
+  if (json_re[i]["name"].indexOf("shu1") > -1) {
+    // var text = new createjs.Text(reName + ',' + json_re[i]["left"] + ',' + json_re[i]["top"], "28px Arial", "#000");
+    // text.x = wb[reName].x; text.y = wb[reName].y+80;
+    // text.color ="#00c0ff";
+    // text.textBaseline = "alphabetic";
   }
 
 
@@ -53,16 +54,19 @@ for (let i = 0; i < json_re.length; i++) {
     wb[reName].skewY = json_re[i]["skewY"];
   }
 
+  if (typeof json_re[i]["contaier"] != "undefined") {
+    wb[reName].skewY = json_re[i]["skewY"];
+    con = window[json_re[i]["contaier"]];
+  }
 
 
 
-
-  container2.addChild(wb[reName]);
+  con.addChild(wb[reName]);
   wb[reName].regX = w_ * origin_x;
   wb[reName].x = wb[reName].x + w_ * origin_x;
   wb[reName].regY = h_ * origin_y;
   wb[reName].y = wb[reName].y + h_ * origin_y;
-  containerAll.addChild(text);
+  // containerAll.addChild(text);
 }
 
 

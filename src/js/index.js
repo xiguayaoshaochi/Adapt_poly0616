@@ -1,10 +1,12 @@
 import 'yuki-createjs/lib/easeljs-0.8.2.combined'
 import 'yuki-createjs/lib/tweenjs-0.6.2.combined'
-
+// import createjs from 'script-loader!createjs/builds/createjs-2015.11.26.min';
+// import createjs from 'createjs-npm/lib/create';
+require('./loadMusic.js');
 window.onload=function(){
   document.getElementsByTagName("body")[0].style.opacity=0;
   require("./creatjsPlayAds.js");
-  require('./loadMusic.js');
+  
   require("./imgResource.js");
   setTimeout(() => {
     first();
@@ -19,7 +21,8 @@ window.onload=function(){
     }); 
   }, 800);
 
-  let goStart = ()=>{
+  var goStart = function(){
+    // alert(bgm_);
     bgm_play();
     removeStop(wb.go,wb.qipao1);
     mineChangeSite(614.8, 1377.6,1);

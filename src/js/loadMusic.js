@@ -1,3 +1,32 @@
+var bgm_src = require( '../mp3/hometheme.mp3');
+var  kan_src = require( '../mp3/kan.mp3');
+// var  chuizi_src = require( '../mp3/chuizi.mp3');
+// var  wajue_src = require( '../mp3/wajue.mp3');
+var  boom_src = require( '../mp3/boom.mp3');
+// var  jiao_src = require( '../mp3/jiao.mp3');
+// var  canjiao_src = require( '../mp3/canjiao.mp3');
+// var  wolf_src = require( '../mp3/wolf.mp3');
+// var  niujiao_src = require( '../mp3/niujiao.mp3');
+var  choose_src = require( '../mp3/choose.mp3');
+// var  gao_src = require( '../mp3/gao.mp3');
+// var  get_src = require( '../mp3/get.mp3');
+var  shui_src = require( '../mp3/shui.mp3');
+var  ci_src = require( '../mp3/ci.mp3');
+var  yanhua_src = require( '../mp3/yanhua.mp3');
+var  gold_src = require( '../mp3/gold_reward.mp3');
+var  success_src = require( '../mp3/success.mp3');
+var  ranshao_src = require( '../mp3/ranshao.mp3');
+// var  car_src = require( '../mp3/car1.mp3'); 
+// var  gou_src = require( '../mp3/gou.mp3');
+// var  reng_src = require( '../mp3/reng.mp3');
+// var  yang_src = require( '../mp3/yang.mp3');
+// var  guafeng_src = require( '../mp3/guafeng.mp3');
+// var  saodi_src = require( '../mp3/saodi.mp3');
+// var  opensd_src = require( '../mp3/openStoneDoor.mp3');
+var shaozi_src = require('../mp3/shaozi.mp3');
+var zhujiao_src = require('../mp3/zhujiao1.mp3');
+
+
 window.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 window.gainNode = audioCtx.createGain();
 
@@ -22,6 +51,13 @@ function loadMusic(msrc, loop) {
   };
   _this.req.send();
   _this.ready=function(){
+    _this.source=null;
+    _this.startTime = audioCtx.currentTime;
+    _this.source=audioCtx.createBufferSource();
+    _this.source.loop=loop;
+    _this.source.buffer = _this.b;
+    _this.source.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
     _this.source.start(0);
     _this.source.stop(0);
   }
@@ -46,34 +82,7 @@ function loadMusic(msrc, loop) {
   }
 }
 
-var bgm_src = require( '../mp3/hometheme.mp3');
-var  kan_src = require( '../mp3/kan.mp3');
-// var  chuizi_src = require( '../mp3/chuizi.mp3');
-// var  wajue_src = require( '../mp3/wajue.mp3');
-var  boom_src = require( '../mp3/boom.mp3');
-// var  jiao_src = require( '../mp3/jiao.mp3');
-// var  canjiao_src = require( '../mp3/canjiao.mp3');
-// var  wolf_src = require( '../mp3/wolf.mp3');
-// var  niujiao_src = require( '../mp3/niujiao.mp3');
-var  choose_src = require( '../mp3/choose.mp3');
-// var  gao_src = require( '../mp3/gao.mp3');
-// var  get_src = require( '../mp3/get.mp3');
-var  shui_src = require( '../mp3/shui.mp3');
-var  ci_src = require( '../mp3/ci.mp3');
-var  bgm_src = require( '../mp3/hometheme.mp3');
-var  yanhua_src = require( '../mp3/yanhua.mp3');
-var  gold_src = require( '../mp3/gold_reward.mp3');
-var  success_src = require( '../mp3/success.mp3');
-var  ranshao_src = require( '../mp3/ranshao.mp3');
-// var  car_src = require( '../mp3/car1.mp3'); 
-// var  gou_src = require( '../mp3/gou.mp3');
-// var  reng_src = require( '../mp3/reng.mp3');
-// var  yang_src = require( '../mp3/yang.mp3');
-// var  guafeng_src = require( '../mp3/guafeng.mp3');
-// var  saodi_src = require( '../mp3/saodi.mp3');
-// var  opensd_src = require( '../mp3/openStoneDoor.mp3');
-var shaozi_src = require('../mp3/shaozi.mp3');
-var zhujiao_src = require('../mp3/zhujiao.mp3');
+
 
 setTimeout(function(){
   window.bgm = new loadMusic(bgm_src,true);
@@ -116,12 +125,11 @@ setTimeout(function(){
 },500)
 
 window.bgm_state = false;
-window.bgm_play = () => {
+window.bgm_play = function()  {
   window.bgm_state = true;
-  window.stage.removeEventListener("mousedown", bgm_play);
   bgm.play(0);
   yanhua.ready();
-  shaozi.ready();
+  // shaozi.ready();
   zhujiao.ready();
   // canjiao.ready();
   gold.ready();
@@ -151,4 +159,4 @@ window.bgm_play = () => {
   // wb.open.alpha=1;
 }
 
-module.exports = loadMusic
+// module.exports = loadMusic

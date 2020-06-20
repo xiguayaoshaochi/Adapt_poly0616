@@ -517,7 +517,7 @@ function yanhuaChange4() {
 
 
 
-window.one = (fn, timer) => {
+window.one = function(fn, timer)  {
   var flag = true;
   var time = null;
   if (typeof timer != "undefined") {

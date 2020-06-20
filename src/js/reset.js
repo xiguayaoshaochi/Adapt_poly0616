@@ -37,7 +37,7 @@ window.containerAll2_cs = new createjs.Container();
 window.containerAll3 = new createjs.Container();
 window.containerAll_yh = new createjs.Container();
 window.person = new createjs.Container();
-createjs.Touch.enable(stage);
+
 
 // addBitmap('bg',bg_,0,0,"addArr6");
 // container4_2.addChild(wb.bg);

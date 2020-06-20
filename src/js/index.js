@@ -132,7 +132,7 @@ window.onload=function(){
     pigHide(800);
     createjs.Tween.get(wb.gou).to({ scaleX: 1, scaleY: 1 }, 500, createjs.Ease.backOut);
   }
-
+ 
   let clickCS22 = () => {
     jtPause();
     choose.play(0);

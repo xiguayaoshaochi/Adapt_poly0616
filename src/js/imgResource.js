@@ -117,10 +117,11 @@ var yanhua2_all = new createjs.SpriteSheet({
 var pig_all = new createjs.SpriteSheet({
   framerate: 15,
   "images": [pig_],
-  "frames": { "regX": 0, "height": 83, "count": 8, "regY": 0, "width": 92 },
+  "frames": { "regX": 0, "height": 83, "count": 9, "regY": 0, "width": 92 },
   "animations": {
     "start": [0, 7, "stop", 0.2],
     "stop": [0],
+    "back": [8],
   },
 });
 
@@ -276,7 +277,7 @@ setTimeout(function () {
   // addRectBitmap_simple('cs4_1','cs4_1',sprite_,json_sprite,0.5,0.5,970.3,846.1,"addArrAll",true);
   // addRectBitmap_simple('cs4_2','cs4_2',sprite_,json_sprite,0.5,0.5,971.8,790.5,"addArrAll",true);
   addRectBitmap_simple('an1_1', 'muban', sprite_, json_sprite, 0.5, 0.5, 740.8, 1288.5 , "addArrAll", true);
-  addRectBitmap_simple('an1_2', 'stone', sprite_, json_sprite, 0.36, 0.52, 738.1, 1313.1  , "addArrAll", true);
+  addRectBitmap_simple('an1_2', 'stone', sprite_, json_sprite, 0.36, 0.52, 744, 1308  , "addArrAll", true);
   addRectBitmap_simple('an2_1', 'cs2_1', sprite_, json_sprite, 0.8, 0.2, 1657.3, 1237.5, "addArrAll", true);
   addRectBitmap_simple('an2_2', 'cs2_2', sprite_, json_sprite, 0.5, 0.5, 1638.7, 1254.5, "addArrAll", true);
   addRectBitmap_simple('an3_1', 'cs3_1', sprite_, json_sprite, 0.5, 0.5, 2142.3, 996.6, "addArrAll", true);

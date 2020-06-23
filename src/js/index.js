@@ -1,5 +1,6 @@
 import 'yuki-createjs/lib/easeljs-0.8.2.combined'
 import 'yuki-createjs/lib/tweenjs-0.6.2.combined'
+// import { call } from 'file-loader';
 // import createjs from 'script-loader!createjs/builds/createjs-2015.11.26.min';
 // import createjs from 'createjs-npm/lib/create';
 require('./loadMusic.js');
@@ -155,8 +156,8 @@ window.onload=function(){
 
   let pigHide = (time) => {
     recoveryChoose();
-    createjs.Tween.get(wsp.pig_ani1).wait(time).to({ alpha: 0, x: 1424, y: 873 }, 500, createjs.Ease.quartIn);
-    createjs.Tween.get(wsp.pig_ani2).wait(time).to({ alpha: 0, x: 1506, y: 978 }, 500, createjs.Ease.quartIn).wait(350).call(function(){
+    createjs.Tween.get(wsp.pig_ani1).wait(time).call(function () { wsp.pig_ani1.gotoAndPlay("back");w1.lock=false }).wait(100).to({ alpha: 0, x: 1424, y: 873 }, 500, createjs.Ease.quartIn);
+    createjs.Tween.get(wsp.pig_ani2).wait(time).call(function () { wsp.pig_ani2.gotoAndPlay("back");w2.lock = false }).wait(100).to({ alpha: 0, x: 1506, y: 978 }, 500, createjs.Ease.quartIn).wait(350).call(function(){
       gotoLast();
     });
   }

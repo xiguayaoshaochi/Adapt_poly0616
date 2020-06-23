@@ -34,16 +34,16 @@ module.exports = {
   ],
   optimization: { //与entry同级
     minimizer: [
-      // new UglifyJsPlugin({
-      //   uglifyOptions: {
-      //     compress: false,
-      //     mangle: true,
-      //     output: {
-      //       comments: false,
-      //     },
-      //   },
-      //   sourceMap: false,
-      // })
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: false,
+          mangle: true,
+          output: {
+            comments: false,
+          },
+        },
+        sourceMap: false,
+      })
     ]
   },
   // 使用webpack-dev-server -D 把热更新安装到本地

@@ -65,10 +65,12 @@
   },
   {    "name":"road2",
     "left": 332,
-  "top": 1410
+  "top": 1390,
+  "rotation":2
 },{    "name":"road2",
     "left": 509,
-  "top": 1307
+  "top": 1301,
+  "rotation": 5
 },{    "name":"road2",
     "left": 822,
   "top": 1150
@@ -539,8 +541,8 @@
     "left": 1519,
   "top": 731
 },{  "name": "stone1",
-  "left": 1528,
-  "top": 694
+  "left": 1570,
+  "top": 670
 },{    "name":"cao3",
     "left": 1474,
   "top": 790
@@ -583,7 +585,7 @@
     "left": 495,
   "top": 1534
 },{  "name": "stone1",
-  "left": 440,
+  "left": 430,
   "top": 1523
 },{    "name":"cao1",
     "left": 488,
@@ -802,8 +804,8 @@
 ,
 {
   "name": "baoxiang",
-  "left": 1500,
-  "top": 1080
+  "left": 1470,
+  "top": 1084
 },{    "name":"hua1",
     "left": 1433,
   "top": 1016
@@ -889,14 +891,14 @@
     "left": 1907,
   "top": 803
 },{    "name":"stone1",
-    "left": 1938,
-  "top": 973
+    "left": 1960,
+  "top": 1061
 },{    "name":"shu1",
     "left": 1943,
   "top": 1020
 },{    "name":"stone1",
-    "left": 2017,
-  "top": 877
+    "left": 1820,
+  "top": 933
 },{    "name":"cao3",
     "left": 1992,
   "top": 927

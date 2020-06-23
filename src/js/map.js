@@ -34,14 +34,18 @@ for (let i = 0; i < json_re.length; i++) {
   }
 
   if (json_re[i]["name"].indexOf("stone1") > -1 ) {
-    wb[reName].scaleX = wb[reName].scaleY = 0.7 + ((random1(0, 20000) - 10000) / 100000);
+    wb[reName].scaleX = wb[reName].scaleY = 0.5 + ((random1(0, 20000) - 10000) / 100000);
   }
 
-  if (json_re[i]["name"].indexOf("shu1") > -1) {
-    // var text = new createjs.Text(reName + ',' + json_re[i]["left"] + ',' + json_re[i]["top"], "28px Arial", "#000");
-    // text.x = wb[reName].x; text.y = wb[reName].y+80;
-    // text.color ="#00c0ff";
-    // text.textBaseline = "alphabetic";
+  if (json_re[i]["name"].indexOf("stoneRoad") > -1) {
+    wb[reName].alpha = 0.5;
+  }
+  
+  if (json_re[i]["name"].indexOf("baoxiang") > -1) {
+    var text = new createjs.Text(reName + ',' + json_re[i]["left"] + ',' + json_re[i]["top"], "28px Arial", "#000");
+    text.x = wb[reName].x; text.y = wb[reName].y+80;
+    text.color ="#00c0ff";
+    text.textBaseline = "alphabetic";
   }
 
 
@@ -52,6 +56,10 @@ for (let i = 0; i < json_re.length; i++) {
 
   if (typeof json_re[i]["skewY"] != "undefined") {
     wb[reName].skewY = json_re[i]["skewY"];
+  }
+
+  if (typeof json_re[i]["rotation"] != "undefined") {
+    wb[reName].rotation = json_re[i]["rotation"];
   }
 
   if (typeof json_re[i]["contaier"] != "undefined") {
